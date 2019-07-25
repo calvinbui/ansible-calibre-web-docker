@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.com/calvinbui/ansible-calibre_web-docker.svg?branch=master)](https://travis-ci.com/calvinbui/ansible-calibre_web-docker)
-![GitHub release](https://img.shields.io/github/release/calvinbui/ansible-calibre_web-docker.svg)
+[![Build Status](https://travis-ci.com/calvinbui/ansible-calibre-web-docker.svg?branch=master)](https://travis-ci.com/calvinbui/ansible-calibre-web-docker)
+![GitHub release](https://img.shields.io/github/release/calvinbui/ansible-calibre-web-docker.svg)
 ![Ansible Quality Score](https://img.shields.io/ansible/quality/42298.svg)
 ![Ansible Role](https://img.shields.io/ansible/role/d/42298.svg)
 
