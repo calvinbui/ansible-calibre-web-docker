@@ -1,0 +1,30 @@
+---
+
+- name: Create Calibre Web directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - "{{ calibre_web_config_directory }}"
+    - "{{ calibre_web_books_directory }}"
+
+- name: Set Docker container parameters
+  set_fact:
+    calibre_web_container_parameters:
+      name: "{{ calibre_web_name }}"
+      image: "{{ calibre_web_image }}"
+      state: started
+      published_ports: "{{ calibre_web_ports }}"
+      volumes:
+        - "{{ calibre_web_config_directory }}:/config"
+        - "{{ calibre_web_books_directory }}:/books"
+      env: "{{ calibre_web_environment_variables }}"
+
+- name: Create Calibre Web container
+  docker_container: "{{ calibre_web_container_parameters | combine(calibre_web_docker_additional_options) }}"
+  register: calibre_web_container
+
+- name: Wait for Calibre Web start
+  wait_for:
+    port: "{{ calibre_web_ports[0].split(':')[0] }}"
+    host: "{{ calibre_web_container.container.NetworkSettings.IPAddress }}"

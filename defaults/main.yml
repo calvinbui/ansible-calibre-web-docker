@@ -1,0 +1,16 @@
+---
+
+calibre_web_name: calibre-web
+calibre_web_image: linuxserver/calibre-web
+calibre_web_ports:
+  - 8083:8083
+calibre_web_config_directory: /tmp/calibre-web
+calibre_web_books_directory: /tmp/books
+calibre_web_environment_variables:
+  PUID: "1000"
+  PGID: "1000"
+  TZ: Sydney/Australia
+  DOCKER_MODS: linuxserver/calibre-web:calibre
+
+calibre_web_docker_additional_options:
+  restart_policy: unless-stopped

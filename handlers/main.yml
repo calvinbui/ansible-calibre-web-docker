@@ -1,0 +1,7 @@
+---
+
+- name: Restart Calibre Web
+  docker_container:
+    name: "{{ calibre_web_name }}"
+    state: started
+    restart: true
