@@ -5,4 +5,4 @@
   hosts: all
   become: true
   roles:
-    - role: ansible-calibre_web-docker
+    - role: ansible-calibre-web-docker
